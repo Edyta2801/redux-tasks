@@ -26,14 +26,14 @@ const INITIAL_STATE = {
   count: 0
 };
 
-export function reducer(state = INITIAL_STATE, action) {
+export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case COUNTER_INC:
-      return { ...state, counter: state.counter + 1 };
+      return { ...state, count: state.count + 1 };
     case COUNTER_DEC:
-      return { ...state, counter: state.counter - 1 };
+      return { ...state, count: state.count - 1 };
     case COUNTER_RESET:
-      return { ...state, counter: 0 };
+      return { ...state, count: 0 };
     default:
       return state;
   }
@@ -42,3 +42,4 @@ export function reducer(state = INITIAL_STATE, action) {
   //   // return Object.assign({}, { counter: state.counter + 1 });
   // }
   // return state;
+}
