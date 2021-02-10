@@ -7,9 +7,9 @@ import "./styles.css";
 import CounterContainer from "./counter/CounterContainer";
 import Posts from "./posts/containers/Posts";
 import Users from "./users/containers/Users";
-import reducer from "./counter/redux";
+import rootReducer from "./rootReducer";
 
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 
 export default class App extends React.Component {
