@@ -8,6 +8,8 @@ const COUNTER_INC = "counter/COUNTER_INC";
 const COUNTER_DEC = "counter/COUNTER_DEC";
 const COUNTER_RESET = "counter/COUNTER_RESET";
 
+
+//action creatory
 export function inc() {
   return {
     type: COUNTER_INC
@@ -20,7 +22,9 @@ export function dec() {
   };
 }
 
+//zapis ten sam co w dec i inc tylko z uzyciem const
 export const reset = () => ({ type: COUNTER_RESET });
+
 
 const INITIAL_STATE = {
   count: 0
@@ -37,6 +41,12 @@ export default function reducer(state = INITIAL_STATE, action) {
     default:
       return state;
   }
+
+
+  //Należy zwrócić nowy okiekt, żeby nowa referencja w pamięci powstała, 
+  //ponieważ const INITIAL_STATE jest obiektem (typem złożonym)
+
+  // export default function reducer(state = INITIAL_STATE, action) {
   // if (action.type === COUNTER_INC) {
   //   return {...state, counter: state.counter + 1 }
   //   // return Object.assign({}, { counter: state.counter + 1 });

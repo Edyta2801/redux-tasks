@@ -8,6 +8,8 @@ const INITIAL_STATE = {
   isError: false
 };
 
+
+//action creatory
 const fetchRequested = () => ({ type: FETCH_POSTS_REQUESTED });
 const fetchFailed = () => ({ type: FETCH_POSTS_FAILED });
 const fetchSucceded = data => ({ type: FETCH_POSTS_SUCCEDED, payload: data });

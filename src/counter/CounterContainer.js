@@ -6,6 +6,7 @@ import {inc} from './redux';
 class CounterContainer extends Component {
   render() {
     console.log(this.props.counterValue);
+
     const { counterValue, addValue } = this.props;
     return (
       <div className="container">
@@ -16,11 +17,15 @@ class CounterContainer extends Component {
   }
 }
 
+
+//mapuje stan na propsy - odczytuje
 function mapStateToProps(state) {
   return {
     counterValue: state.counter.count,
   };
 }
+
+//zmapowanie funkcji akcji którą będziemy dispatchowac na propsy
 function mapDispatchToProps(dispatch) {
   return {
    addValue:()=>dispatch(inc())
