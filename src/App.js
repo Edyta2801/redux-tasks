@@ -1,5 +1,5 @@
 import React from "react";
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 
@@ -10,7 +10,13 @@ import Posts from "./posts/containers/Posts";
 import Users from "./users/containers/Users";
 import rootReducer from "./rootReducer";
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const middleware = [thunk];
+const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
+  applyMiddleware(...middleware)
+));
 
 export default class App extends React.Component {
   render() {
