@@ -1,6 +1,6 @@
-const FETCH_USERS_REQUESTED = "users/FETCH_USERS_REQUESTED";
-const FETCH_USERS_SUCCEDED = "users/FETCH_USERS_SUCCEDED";
-const FETCH_USERS_FAILED = "users/FETCH_USERS_FAILED";
+export const FETCH_USERS_REQUESTED = "users/FETCH_USERS_REQUESTED";
+export const FETCH_USERS_SUCCEDED = "users/FETCH_USERS_SUCCEDED";
+export const FETCH_USERS_FAILED = "users/FETCH_USERS_FAILED";
 
 const INITIAL_STATE = {
   users: [],
@@ -8,27 +8,25 @@ const INITIAL_STATE = {
   isError: false
 };
 
+export const fetchRequested = () => ({ type: FETCH_USERS_REQUESTED });
+export const fetchFailed = () => ({ type: FETCH_USERS_FAILED });
+export const fetchSucceded = data => ({ type: FETCH_USERS_SUCCEDED, payload: data });
 
-//action creatory
-const fetchRequested = () => ({ type: FETCH_USERS_REQUESTED });
-const fetchFailed = () => ({ type: FETCH_USERS_FAILED });
-const fetchSucceded = data => ({ type: FETCH_USERS_SUCCEDED, payload: data });
+// export const fetchUsers = () => {
+//   return function(dispatch) {
+//     dispatch(fetchRequested());
+//     fetch("https://jsonplaceholder.typicode.com/users")
+//       .then(response => response.json())
+//       .then(data => {
+//         dispatch(fetchSucceded(data.slice(0, 5)));
+//       })
+//       .catch(error => {
+//         dispatch(fetchFailed());
+//       });
+//   };
+// };
 
-export const fetchUsers = () => {
-  return function(dispatch) {
-    dispatch(fetchRequested());
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(response => response.json())
-      .then(data => {
-        dispatch(fetchSucceded(data.slice(0, 5)));
-      })
-      .catch(error => {
-        dispatch(fetchFailed());
-      });
-  };
-};
-
-export default function reducer(state = INITIAL_STATE, action){
+export default function redux (state = INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_USERS_REQUESTED:
       return {
