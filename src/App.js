@@ -43,11 +43,11 @@ export default class App extends React.Component {
       <div className="App">
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <Appbar />
-            <ContactForm onSubmit={this.handleSubmit}/>
-            <CounterContainer />
-            <Posts />
+          <Appbar />
             <Users />
+            <Posts />
+            <CounterContainer />
+            <ContactForm onSubmit={this.handleSubmit} />
           </PersistGate>
         </Provider>
       </div>

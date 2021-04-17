@@ -4,6 +4,7 @@ import { Field, reduxForm } from "redux-form";
 let ContactForm = (props) => {
   const { handleSubmit } = props;
   return (
+    <div className="container">
     <form onSubmit={handleSubmit}>
       {/* form body */}
       <div>
@@ -20,6 +21,7 @@ let ContactForm = (props) => {
       </div>
       <button type="submit">Submit</button>
     </form>
+    </div>
   );
 };
 
