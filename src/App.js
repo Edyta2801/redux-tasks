@@ -8,6 +8,9 @@ import "./styles.css";
 import CounterContainer from "./counter/CounterContainer";
 import Posts from "./posts/containers/Posts";
 import Users from "./users/containers/Users";
+import Appbar from "./ui/containers/Appbar";
+
+
 import rootReducer from "./rootReducer";
 
 
@@ -23,6 +26,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <Provider store={store}>
+       <Appbar/>
           <CounterContainer />
           <Posts />
           <Users />
