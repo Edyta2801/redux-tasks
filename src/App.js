@@ -14,6 +14,8 @@ import Posts from "./posts/containers/Posts";
 import Users from "./users/containers/Users";
 import Appbar from "./ui/containers/Appbar";
 import ContactForm from './users/containers/ContactForm';
+import Form from './Todo/Form';
+import List from './Todo/List';
 
 import rootReducer from "./rootReducer";
 import rootSaga from './rootSaga';
@@ -49,6 +51,8 @@ export default class App extends React.Component {
       <div className="App">
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
+            <Form/>
+            <List/>
             <Appbar />
             <Users />
             <Posts />
